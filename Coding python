@@ -1,0 +1,40 @@
+import random  # Import the random module for computer's choice
+
+# Define possible choices
+options = ("rock", "paper", "scissors")
+
+# Control variable for the game loop
+running = True
+
+# Main game loop
+while running:
+
+    player = None  # Initialize player choice as None
+    computer = random.choice(options)  # Randomly select the computer's choice
+
+    # Ask the player for input until they provide a valid choice
+    while player not in options:
+        player = input("Enter a choice (rock, paper, scissors): ")
+
+    # Display choices
+    print(f"Player: {player}")
+    print(f"Computer: {computer}")
+
+    # Determine the winner
+    if player == computer:
+        print("It's a tie!")
+    elif player == "rock" and computer == "scissors":
+        print("You win!")
+    elif player == "paper" and computer == "rock":
+        print("You win!")
+    elif player == "scissors" and computer == "paper":
+        print("You win!")
+    else:
+        print("You lose!")
+
+    # Ask the player if they want to play again
+    if not input("Play again? (y/n): ").lower() == "y":
+        running = False  # Exit the loop if the player chooses not to continue
+
+# End of game message
+print("Thanks for playing!")
